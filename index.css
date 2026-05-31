@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+:root {
+  --gf-purple: #673ab7;
+  --gf-purple-dark: #5e35a1;
+  --gf-purple-light: #f0ebf8;
+  --gf-bg: #f0ebf8;
+  --gf-border: #dadce0;
+  --gf-text: #202124;
+  --gf-muted: #5f6368;
+  --gf-error: #d93025;
+}
+
+html,
+body {
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--gf-bg);
+  color: var(--gf-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Google-Forms-style underline input */
+.gf-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--gf-border);
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--gf-text);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.gf-input:focus {
+  border-bottom: 2px solid var(--gf-purple);
+  padding-bottom: 5px;
+}
+.gf-input::placeholder {
+  color: #9aa0a6;
+}
+
+.gf-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--gf-border);
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--gf-text);
+  outline: none;
+  resize: vertical;
+  min-height: 56px;
+  font-family: inherit;
+  transition: border-color 0.15s ease;
+}
+.gf-textarea:focus {
+  border-bottom: 2px solid var(--gf-purple);
+  padding-bottom: 5px;
+}
+
+/* Radio button styled like Google Forms */
+.gf-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gf-muted);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.15s ease;
+}
+.gf-radio:checked {
+  border-color: var(--gf-purple);
+}
+.gf-radio:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: var(--gf-purple);
+  border-radius: 50%;
+}
+.gf-radio:focus {
+  outline: none;
+}
+
+/* Question card — Google Forms signature look */
+.gf-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  border: 1px solid transparent;
+  border-left: 4px solid transparent;
+  padding: 24px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.gf-card:focus-within {
+  border-left-color: var(--gf-purple);
+}
+
+.gf-card-header {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  border-top: 10px solid var(--gf-purple);
+  padding: 24px;
+}
+
+/* Primary button like Google Forms */
+.gf-btn-primary {
+  background: var(--gf-purple);
+  color: #fff;
+  font-family: "Google Sans", Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  padding: 8px 24px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+.gf-btn-primary:hover {
+  background: var(--gf-purple-dark);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+.gf-btn-primary:disabled {
+  background: rgba(95, 99, 104, 0.12);
+  color: rgba(60, 64, 67, 0.38);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.gf-btn-text {
+  background: transparent;
+  color: var(--gf-purple);
+  font-family: "Google Sans", Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.gf-btn-text:hover {
+  background: rgba(103, 58, 183, 0.08);
+}
+
+/* Tab styling like Google Forms */
+.gf-tab {
+  font-family: "Google Sans", Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--gf-muted);
+  padding: 12px 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  letter-spacing: 0.25px;
+}
+.gf-tab:hover {
+  background: rgba(103, 58, 183, 0.04);
+}
+.gf-tab.active {
+  color: var(--gf-purple);
+}
+.gf-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gf-purple);
+}
+
+/* Animations */
+@keyframes slide-in {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #dadce0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bdc1c6;
+}
